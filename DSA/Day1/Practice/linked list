@@ -1,0 +1,66 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Node{
+public:
+  int data;
+  Node *next;
+};
+void print(Node *h)                                                    // to print
+{
+    while(h!=NULL)
+    {
+        cout<<h->data<<" ";
+        h=h->next;
+    }
+    cout<<endl;
+    return;
+}
+void add_element(Node **head_r, int item)                          // to add element
+{
+  Node* new_node=new Node();
+  Node *last = *head_r;
+  new_node->data=item;
+  new_node->next=NULL;
+  if(*head_r==NULL)
+  {
+  *head_r=new_node;
+  return;
+  }
+  while(last->next != NULL )
+  {
+   last=last->next;
+  }
+  last->next=new_node;
+  return;
+}
+void delete_element(Node **head_r)                            // delete element
+{
+    Node *h=*head_r;
+    Node *prev;
+    while(h->next!=NULL)
+    {
+        prev=h;
+        h=h->next;
+    }
+    prev->next=NULL;
+        return ;
+
+
+}
+int main()                                        
+{
+int n,val;
+cout<<"enter the number of nodes"<<endl;
+cin>>n;
+Node *head=NULL;
+for(int i=0;i<n;i++)
+{
+cin>>val;
+add_element(&head,val);
+}
+print(head);
+delete_element(&head);
+cout<<"after deletion"<<endl;
+print(head);
+return 0;
+}
