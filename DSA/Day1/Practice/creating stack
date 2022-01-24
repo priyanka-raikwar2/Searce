@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+stack<int>s;
+int n;
+cout<<"enter n"<<endl;
+cin>>n;
+for(int i=0;i<n;i++)
+{
+int item;
+cin>>item;
+s.push(item);
+
+}
+cout<<s.top();
+s.pop();
+cout<<endl;
+cout<<"after pop operation"<<"  "<<endl;
+cout<<"top is  "<<s.top();
+return 0;
+}
