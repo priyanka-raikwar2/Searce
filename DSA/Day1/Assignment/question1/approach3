@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>              // Using two pointer approach 
+using namespace std;
+int main()
+{
+int arr[1000];
+int n;
+cout<<"enter number of elements"<<endl;
+cin>>n;
+for(int i=0;i<n;i++)                 //take elements in array
+{
+cin>>arr[i];
+}
+int ptr1,ptr2;
+ptr1=0;
+ptr2=n-1;
+while(ptr1<ptr2)                    // swapping last with first, second last with second and so on
+{
+int temp=arr[ptr1];
+arr[ptr1]=arr[ptr2];
+arr[ptr2]=temp;
+ptr1++;
+ptr2--;
+}
+for(int i=0;i<n;i++)
+{
+cout<<arr[i]<<" ";
+}
+return 0;
+}
