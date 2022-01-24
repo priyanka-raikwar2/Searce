@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+queue<int>q;
+int n,val;
+cout<<"enter number of elements"<<endl;
+cin>>n;
+for(int i=0;i<n;i++)
+{
+cin>>val;
+q.push(val);
+}
+cout<<"print queue"<<endl;
+queue<int>q1=q;
+while(!q1.empty())
+{
+cout<<q1.front()<<endl;
+q1.pop();
+}
+cout<<"show front elemet"<<endl;
+cout<<q.front()<<endl;
+cout<<"show last element"<<endl;
+cout<<q.back()<<endl;
+cout<<"after performing pop operation"<<endl;
+q.pop();
+q1=q;
+while(!q1.empty())
+{
+cout<<q1.front()<<endl;
+q1.pop();
+}
+return 0;
+
+}
