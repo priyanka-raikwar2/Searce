@@ -1,0 +1,72 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Node{
+public:
+    int data;
+    Node *next;
+};
+void reverseLL(Node** head)
+{
+
+    stack<Node*> s;
+    Node* temp = *head;
+    while (temp->next != NULL)
+    {
+
+        s.push(temp);
+        temp = temp->next;
+    }
+    *head = temp;
+
+    while (!s.empty())
+    {
+
+        temp->next = s.top();
+
+        s.pop();
+
+        temp = temp->next;
+    }
+    temp->next = NULL;
+    return;
+}
+void print(Node *h)
+{
+    while(h!=NULL)
+    {
+        cout<<h->data<<" ";
+        h=h->next;
+    }
+    cout<<endl;
+    return;
+}
+void add_element(Node **head_r, int item)
+{
+  Node* new_node=new Node();
+  Node *last = *head_r;
+  new_node->data=item;
+  new_node->next=NULL;
+  if(*head_r==NULL)
+  {
+  *head_r=new_node;
+  return;
+  }
+  while(last->next != NULL )
+  {
+   last=last->next;
+  }
+  last->next=new_node;
+  return;
+}
+int main()
+{
+Node *head=NULL;
+add_element(&head,3);
+add_element(&head,5);
+add_element(&head,11);
+add_element(&head,22);
+reverseLL(&head);
+print(head);
+return 0;
+
+}
