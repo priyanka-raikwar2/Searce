@@ -1,0 +1,84 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Node{
+ public:
+ int data;
+ Node *next;
+};
+void pop_operation(Node **h_reff)                                                       //pop opertion
+{
+Node *ptr=*h_reff;
+Node *prev=*h_reff;
+if(ptr==NULL)
+{
+cout<<"stack underflow"<<endl;
+return;
+}
+while(ptr->next!=NULL)
+{
+prev=ptr;
+ptr=ptr->next;
+}
+prev->next=NULL;
+return;
+}
+void push_operation(Node **h_reff,int n, int item)                                   //push operation
+{
+Node *ptr=*h_reff;
+int c=0;
+Node *new_node=new Node();
+if(*h_reff==NULL)
+{
+new_node->data=item;
+new_node->next=NULL;
+*h_reff=new_node;
+return;
+}
+while(ptr->next!=NULL)
+{
+ptr=ptr->next;
+c++;
+}
+if(c==n)
+{
+cout<<"stack over flow"<<endl;
+return;
+}
+new_node->data=item;
+new_node->next=NULL;
+ptr->next=new_node;
+return;
+
+}
+void print(Node *h)                                                                   // print stack
+{
+while(h->next!=NULL)
+{
+cout<<h->data<<endl;
+h=h->next;
+}
+return;
+}
+int main()
+{
+Node *head=NULL;
+int n,val;
+cout<<"enter number of elements to be stored in stack"<<endl;
+cin>>n;
+pop_operation(&head);
+for(int i=0;i<n;i++)
+{
+cin>>val;
+push_operation(&head,n,val);
+}
+print(head);
+cout<<"After performing pop operation"<<endl;
+pop_operation(&head);
+print(head);
+cout<<"enter more elements to check stack overflow"<<endl;
+cin>>val;
+push_operation(&head,n,val);
+cin>>val;
+push_operation(&head,n,val);
+return 0;
+}
