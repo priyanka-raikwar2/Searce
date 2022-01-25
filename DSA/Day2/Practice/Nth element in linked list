@@ -1,0 +1,60 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Node{
+public:
+    int data;
+    Node *next;
+};
+int nth_ele(Node *head,int n)
+{
+    Node *ptr=head;
+    for(int i=1;i<n;i++)
+    {
+        ptr=ptr->next;
+    }
+    return ptr->data;
+}
+void print(Node *h)
+{
+    while(h!=NULL)
+    {
+        cout<<h->data<<" ";
+        h=h->next;
+    }
+    cout<<endl;
+    return;
+}
+void add_element(Node **head_r, int item)
+{
+  Node* new_node=new Node();
+  Node *last = *head_r;
+  new_node->data=item;
+  new_node->next=NULL;
+  if(*head_r==NULL)
+  {
+  *head_r=new_node;
+  return;
+  }
+  while(last->next != NULL )
+  {
+   last=last->next;
+  }
+  last->next=new_node;
+  return;
+}
+int main()
+{
+    int n;
+Node *head=NULL;
+add_element(&head,3);
+add_element(&head,5);
+add_element(&head,11);
+add_element(&head,22);
+cout<<"nth element"<<endl;
+cin>>n;
+int element=nth_ele(head,n);
+cout<<element<<endl;
+print(head);
+return 0;
+
+}
