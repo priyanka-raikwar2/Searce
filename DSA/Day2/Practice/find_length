@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Node{
+public:
+    int data;
+    Node *next;
+};
+int find_length(Node *h)
+{
+int c=0;
+if(h==NULL)
+return 0;
+while(h->next!=NULL)
+{
+c++;
+h=h->next;
+}
+return c+1;
+}
+void add_element(Node **head_r, int item)
+{
+  Node* new_node=new Node();
+  Node *last = *head_r;
+  new_node->data=item;
+  new_node->next=NULL;
+  if(*head_r==NULL)
+  {
+  *head_r=new_node;
+  return;
+  }
+  while(last->next != NULL )
+  {
+   last=last->next;
+  }
+  last->next=new_node;
+  return;
+}
+int main()
+{
+Node *head=NULL;
+add_element(&head,3);
+add_element(&head,5);
+add_element(&head,11);
+add_element(&head,22);
+int len=find_length(head);
+cout<<len<<endl;
+return 0;
+
+}
