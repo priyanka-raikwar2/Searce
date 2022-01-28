@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+int find_min(int arr[],int n)
+{
+int count=0;
+unordered_map<int,int>hashh;
+for(int i=0;i<n;i++)
+{
+hashh[arr[i]]++;
+
+}
+for(auto i:hashh)
+{
+ if(count<i.second)
+ count=i.second;
+}
+return(n-count);
+}
+int main()
+{
+int a[]={1,2,3,4,5,6,1,2,5,1};
+int n=find_min(a,10);
+cout<<n<<endl;
+return 0;
+}
