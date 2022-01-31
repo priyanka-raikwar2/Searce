@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+string str;
+cin>>str;
+char c;
+int x;
+vector<int>v(26);
+int n=str.length();
+for(int i=0;i<n;i++)                            
+{
+c=str[i];
+x=c;                                                                       // storing ASCII value of character in string
+if(x>=97)                                                                               //checking for Uppercase characters
+{
+if(v[x-97]!=0)
+{
+cout<<"Yes it contains repeated characters"<<endl;
+return 0;
+}
+else
+v[x-97]++;
+}
+else                                                                                 // checking for lowercase characters
+{
+if(v[x-65]!=0)
+{
+cout<<"Yes it contains repeated characters"<<endl;
+return 0;
+}
+else
+v[x-65]++;
+}
+}
+cout<<"No repeating characters"<<endl;
+return 0;
+
+}
